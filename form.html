@@ -2,38 +2,80 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8">
-  <title>Форма — Вариант 05</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Форма — Книжная полка · V05</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h1>Оформление заказа — Вариант 05</h1>
+  <header>
+    <p>Книжная полка · V05</p>
+    <nav>
+      <a href="index.html">Главная</a>
+      <a href="catalog.html">Каталог</a>
+    </nav>
+  </header>
 
-  <!-- Форма. ВАЖНО: без novalidate, чтобы работала встроенная проверка -->
-  <form method="get">
-    <div>
-      <label for="item">Выберите позицию:</label>
-      <select id="item" required>
-        <option value="" disabled selected>Выберите из списка</option>
-        <option value="item1">Путешествие к морю</option>
-        <option value="item2">Вторая карточка</option>
-        <option value="item3">Третья карточка</option>
-      </select>
-    </div>
+  <main>
+    <h1>Заявка на книгу</h1>
+    <p>Учебная форма. Данные пока не сохраняются.</p>
 
-    <div style="margin-top: 10px;">
-      <label for="quantity">Количество:</label>
-      <!-- type="number", min, step: встроенная проверка браузера -->
-      <input type="number" id="quantity" min="1" step="1" required>
-    </div>
+    <form method="get">
+      <p>
+        <label for="count">Количество экземпляров</label>
+        <input id="count" name="count" type="number"
+               min="1" step="1" value="3" required>
+      </p>
 
-    <div style="margin-top: 15px;">
-      <button type="submit">Отправить</button>
-    </div>
+      <p>
+        <label for="wishes">Пожелания к выдаче</label>
+        <textarea id="wishes" name="wishes" rows="4"
+                  placeholder="Опишите ваши пожелания"></textarea>
+      </p>
 
-    <!-- Абзац для вывода сообщения (сразу после кнопки, внутри формы) -->
-    <p id="result" role="status" aria-live="polite"></p>
-  </form>
+      <p>
+        <label for="book">Название книги</label>
+        <select id="book" name="book" required>
+          <option value="">Выберите из списка</option>
+          <option value="item1">Путешествие к морю</option>
+          <option value="item2">Город будущего</option>
+          <option value="item3">Тайна старого дома</option>
+        </select>
+      </p>
 
-  <!-- Подключение скрипта -->
-  <script src="form.js" defer></script>
+      <p>
+        <label for="level">Объём книги</label>
+        <input id="level" name="level" type="range"
+               min="1" max="5" step="1" value="3">
+        <span>Короткая</span>
+        <span>Большая</span>
+      </p>
+
+      <fieldset>
+        <legend>Дополнительные возможности и обратная связь</legend>
+
+        <p>
+          <input id="extra1" name="extra1" type="checkbox" value="yes" checked>
+          <label for="extra1">Нужна закладка</label>
+        </p>
+
+        <p>
+          <input id="extra2" name="extra2" type="checkbox" value="yes">
+          <label for="extra2">Нужен крупный шрифт</label>
+        </p>
+
+        <p>
+          <label for="email">Электронная почта для обратной связи</label>
+          <input id="email" name="email" type="email"
+                 placeholder="student@example.com">
+        </p>
+      </fieldset>
+
+      <button type="submit">Оставить заявку</button>
+    </form>
+  </main>
+
+  <footer>
+    <p>Учебный прототип · Вариант 05</p>
+  </footer>
 </body>
 </html>
