@@ -2,30 +2,40 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8">
-  <title>Вариант 05 — Книжная полка</title>
-  <style>
-    body { font-family: sans-serif; margin: 20px; }
-    .search-box { margin-bottom: 20px; }
-    input { padding: 5px; }
-    button { padding: 5px 10px; cursor: pointer; }
-    #output { margin-top: 20px; padding: 10px; background: #f0f0f0; border-radius: 5px; white-space: pre-wrap; }
-    #welcomeMsg { margin-top: 30px; color: green; font-weight: bold; }
-  </style>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Книжная полка · V05</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h1>Книжная полка — Вариант 05</h1>
+  <div class="wrap">
+    <header>
+      <p>Книжная полка · V05</p>
+      <nav>
+        <a href="index.html">Главная</a>
+        <a href="catalog.html">Каталог</a>
+        <a href="form.html">Форма</a>
+      </nav>
+    </header>
 
-  <div class="search-box">
-    <input type="text" id="searchInput" placeholder="Введите название...">
-    <button id="searchBtn">Найти</button>
-    <button id="resetBtn">Сбросить</button>
+    <main>
+      <h1>Книги для свободного вечера</h1>
+      <p>Выберите историю по настроению</p>
+      <img src="images/item1.png" alt="Обложка книги «Путешествие к морю»" width="280">
+      <p>Три предложения для выбора. Выберите историю по настроению. Найдите книгу под своё настроение.</p>
+      <a href="catalog.html">Открыть каталог</a>
+      <a href="form.html">Оставить заявку</a>
+    </main>
+
+    <footer>
+      <p>Учебный прототип · Вариант 05</p>
+    </footer>
   </div>
-
-  <div id="output"></div>
-
-  <!-- НОВЫЙ БЛОК: сюда выведется приветствие через JS -->
-  <div id="welcomeMsg"></div>
-
-  <script src="catalog.js" defer></script>
+  <script>
+  if ("serviceWorker" in navigator) {
+    navigator.serviceWorker.register("./sw.js").catch((error) => {
+      console.error("Не удалось зарегистрировать service worker:", error);
+    });
+  }
+</script>
 </body>
-</html>  
+</html>
